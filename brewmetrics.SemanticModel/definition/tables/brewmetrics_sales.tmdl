@@ -1,0 +1,100 @@
+table brewmetrics_sales
+	lineageTag: 26222087-c900-41b1-a207-2330f62a5876
+
+	column sale_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 22c87d4c-11b7-44bf-87b0-acf94b99b167
+		summarizeBy: sum
+		sourceColumn: sale_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a6c3873b-7b76-46cc-ad84-eab7d37c5114
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: 30dcabb0-0230-45cd-8c6b-ea6d8530a976
+			defaultHierarchy: LocalDateTable_4ba400cd-bb50-48b7-a403-464bbbc50ca1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column city
+		dataType: string
+		lineageTag: 04cb8c2f-5d35-4bc1-be7f-fffea010009d
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_format
+		dataType: string
+		lineageTag: 243ea00f-1c46-454f-9c1c-58f3f21a6cee
+		summarizeBy: none
+		sourceColumn: store_format
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: e61bed41-996a-40fb-bab2-75f2051c2f7a
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column item
+		dataType: string
+		lineageTag: 11c004f8-989b-4cce-87f4-dfa5366b5a7d
+		summarizeBy: none
+		sourceColumn: item
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 10cdd92a-fd89-4b73-bcc4-ea02201b3321
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: int64
+		formatString: 0
+		lineageTag: ee5d6f67-d09c-44ec-831a-4ded48449635
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_amount
+		dataType: double
+		lineageTag: 2bd1b32f-9dee-4be5-a16e-e2de8f66dd80
+		summarizeBy: sum
+		sourceColumn: sales_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition brewmetrics_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\buisness intelligence datasets\BI MINI PROJECT\brewmetrics_sales.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"sale_id", Int64.Type}, {"date", type date}, {"city", type text}, {"store_format", type text}, {"category", type text}, {"item", type text}, {"quantity", Int64.Type}, {"unit_price", Int64.Type}, {"sales_amount", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

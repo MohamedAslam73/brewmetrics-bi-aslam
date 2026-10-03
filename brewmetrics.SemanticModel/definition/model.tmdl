@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["brewmetrics_sales"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table brewmetrics_sales
+ref table DateTableTemplate_852a6e14-f54d-442d-b934-e9c620f7c6e4
+ref table LocalDateTable_4ba400cd-bb50-48b7-a403-464bbbc50ca1
+
+ref cultureInfo en-US
+

@@ -1,0 +1,5 @@
+relationship 30dcabb0-0230-45cd-8c6b-ea6d8530a976
+	joinOnDateBehavior: datePartOnly
+	fromColumn: brewmetrics_sales.date
+	toColumn: LocalDateTable_4ba400cd-bb50-48b7-a403-464bbbc50ca1.Date
+
