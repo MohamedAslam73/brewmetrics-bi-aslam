@@ -47,6 +47,16 @@ table Fact_Sales
 		formatString: 0
 		lineageTag: 4b306464-5d97-44c3-ad28-3da64a62348c
 
+	measure 'Average Order Value' =
+			
+			DIVIDE(
+			    [Total Sales],
+			    DISTINCTCOUNT(Fact_Sales[sales_amount])
+			)
+		lineageTag: 9764e9cc-40a0-49be-9ab9-e5eb73fe64bf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column date
 		dataType: dateTime
 		formatString: Long Date
