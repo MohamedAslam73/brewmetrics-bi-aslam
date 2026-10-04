@@ -22,6 +22,19 @@ table Fact_Sales
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Running Total Sales' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    FILTER(
+			        ALL(Dim_Date[Date]),
+			        Dim_Date[Date] <= MAX(Dim_Date[Date])
+			    )
+			)
+		lineageTag: 6421bf17-7029-4ccd-a230-ac9381c8ff60
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column date
 		dataType: dateTime
 		formatString: Long Date
