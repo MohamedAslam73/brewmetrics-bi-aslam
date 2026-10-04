@@ -4,19 +4,83 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 140.80000305175781,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 0
+            "x": 1059.6414005426645,
+            "y": 154.17969419412475
           },
           "nodeIndex": "brewmetrics_sales",
           "nodeLineageTag": "26222087-c900-41b1-a207-2330f62a5876",
           "size": {
             "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 591.64140054266466,
+            "y": 302.1377638494763
+          },
+          "nodeIndex": "Dim_City",
+          "nodeLineageTag": "2a242805-2002-460a-80e7-19bb31e430d0",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 239.93914726732118,
+            "y": -50
+          },
+          "nodeIndex": "Dim_Product",
+          "nodeLineageTag": "d8e9bc32-40b2-4e14-bcba-c4255efac857",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 450.3593883882495
+          },
+          "nodeIndex": "Dim_Store_Format",
+          "nodeLineageTag": "1bc25838-456f-4eb2-bc4c-c6d0468810d3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 307.4400344073797,
+            "y": 128.21599814096516
+          },
+          "nodeIndex": "Fact_Sales",
+          "nodeLineageTag": "4fe505da-8ef5-42a5-aa47-87108470ab94",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 825.64140054266466,
+            "y": 202.17969419412475
+          },
+          "nodeIndex": "Dim_Date",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 0

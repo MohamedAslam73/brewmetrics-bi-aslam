@@ -1,0 +1,87 @@
+table Fact_Sales
+	lineageTag: 4fe505da-8ef5-42a5-aa47-87108470ab94
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c19b9dc3-11ac-47cf-83b7-ab21f090b5c4
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column city
+		dataType: string
+		lineageTag: 144aa2b4-1a1c-42c8-8512-90a0be8afe8d
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_format
+		dataType: string
+		lineageTag: 697cf6f9-2c1a-4895-8d3d-bc2c51a123a5
+		summarizeBy: none
+		sourceColumn: store_format
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: be4b22b6-25b0-4516-bfc1-6769fdbef0a3
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column item
+		dataType: string
+		lineageTag: f7a9e0b6-ae61-462a-8060-003601fe70a4
+		summarizeBy: none
+		sourceColumn: item
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 85a4b14f-a96b-469c-a79f-560c61eed3d1
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: int64
+		formatString: 0
+		lineageTag: d40bd29a-f011-432a-a65b-3e47fc2ca747
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_amount
+		dataType: double
+		lineageTag: dc3ccaab-2717-4faa-b4c4-751bed111c2b
+		summarizeBy: sum
+		sourceColumn: sales_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Fact_Sales = m
+		mode: import
+		source =
+				let
+				    Source = brewmetrics_sales,
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"sale_id"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

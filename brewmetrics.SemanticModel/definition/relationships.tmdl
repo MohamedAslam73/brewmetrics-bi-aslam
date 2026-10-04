@@ -3,3 +3,24 @@ relationship 30dcabb0-0230-45cd-8c6b-ea6d8530a976
 	fromColumn: brewmetrics_sales.date
 	toColumn: LocalDateTable_4ba400cd-bb50-48b7-a403-464bbbc50ca1.Date
 
+relationship AutoDetected_f9ae0dea-d0c8-4887-b5a5-bb4584c369a9
+	fromColumn: Fact_Sales.city
+	toColumn: Dim_City.city
+
+relationship AutoDetected_06562a43-b9a2-4255-a249-3f8d54396569
+	fromColumn: Fact_Sales.store_format
+	toColumn: Dim_Store_Format.store_format
+
+relationship AutoDetected_54fe0d50-8c7f-44a9-ba9c-d576c3272edb
+	fromColumn: Fact_Sales.item
+	toColumn: Dim_Product.item
+
+relationship d9d04c06-ee85-42ca-a5ee-7539dc9edb60
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dim_Date.Date
+	toColumn: LocalDateTable_9a9b1ed8-236e-4867-98af-d0941114110f.Date
+
+relationship 529bef2e-9b1a-14f3-3fa3-26aeef4207b2
+	fromColumn: Fact_Sales.date
+	toColumn: Dim_Date.Date
+
